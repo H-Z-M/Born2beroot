@@ -1,0 +1,6 @@
+lvextend
+
+root    700
+home    400
+var-log 300
+else    200
