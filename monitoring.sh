@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# The architecture of your operating system and its kernel version.
+# The architecture of operating system and its kernel version.
 arc=$(echo -n "#Architecture: " ;\
 	uname -a)
 
@@ -12,15 +12,15 @@ cpup=$(echo -n "#CPU physical : " ;\
 vcpu=$(echo -n "#vCPU : " ;\
 	grep processor /proc/cpuinfo | wc -l)
 
-# The current available RAM on your server and its utilization rate as a percentage.
+# The current available RAM on server and its utilization rate as a percentage.
 mem=$(echo -n "#Memory Usage: " ;\
 	free -m | grep Mem | awk '{printf("%d/%dMB (%3.2f%%)\n",$3,$2,$3/$2*100)}')
 
-# The current available memory on your server and its utilization rate as a percentage.
+# The current available memory on server and its utilization rate as a percentage.
 disk=$(echo -n "#Disk Usage: " ;\
 	df -h --total | grep total | tr -d "G" | awk '{printf("%.1f/%.0fGb (%d%%)\n",$3,$2,$5)}')
 
-# The current utilization rate of your processors as a percentage.
+# The current utilization rate of processors as a percentage.
 cpul=$(echo -n "#Cpu load: " ;\
 	top -bn 1 | grep Cpu | sed -e 's/^.*ni,//' -e 's/id.*$//' | awk '{printf("%.1f%%\n", 100.0-$1)}')
 
@@ -40,7 +40,7 @@ tcp=$(echo -n "#Connexions TCP : " ;\
 ulog=$(echo -n "#User log: " ;\
 	users | wc -w)
 
-# The IPv4 address of your server and its MAC (Media Access Control) address.
+# The IPv4 address of server and its MAC (Media Access Control) address.
 ip=$(echo -n "#Network: IP " ;\
 	hostname -I | awk '{printf("%s ",$1)}' ; ip a | grep ether | awk '{printf("(%s)\n",$2)}')
 
