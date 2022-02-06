@@ -39,6 +39,6 @@
 	- サーバーを使用しているユーザー数
 	- サーバーのIPv4アドレスとそのMAC（Media Access Control）アドレス
 	- sudoで実行されたコマンドの数
-![作成したパーティション](images/LVM.png)
+![LVM](images/monitoring.png)
 - LVMを使用して少なくとも２つの暗号化パーティションを作成する必要がある  
-![作成したLVM](images/monitoring.png)
+![パーティション](images/LVM.png)
